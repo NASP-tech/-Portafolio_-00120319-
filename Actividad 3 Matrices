@@ -1,0 +1,29 @@
+//Natalia Alexandra Solorzano Paz 00120310
+
+Utilizando Row-Major para matrices
+1. Asuma que un arreglo esta almacenado en la memoria utilizando la representacion row-major. 
+Si la matriz a[10][20] ya fue declarada y la direccion de su primer elemento es 100; 
+Encuentre la direccion de los siguientes elementos:
+a[0][0],a[2][1],a[5][1],a[1][10],a[2][10],a[5][3],a[9][19]
+Respuesta:
+Si usamos Row-Major, sabemos que los elementos de las matrices van en orden.
+Entonces si tenemos que el primer elemento de la matriz a[10][20] es: a[0][0]=100, entonces a[0][1] sera igual a 101.
+Haciendo uso de esa regla sabemos que:
+a[0][0] = 100
+a[2][1] = 141
+a[5][1] = 201
+a[1][10] = 130
+a[2][10] = 150
+a[5][3] = 203
+a[9][19] = 299
+
+
+2 ¿Son validas las siguientes expresiones? 
+matrix[0][0] = *(*(matrix)) = Esta expresion no es valida
+matrix[ i ][ j ] = *((*(matrix)) + (i * COLS + j)) = Esta expresion es valida
+matrix[ i ][ j ] = *(*(matrix + i) + j) = Esta expresion es valida
+matrix[ i ][ j ] = *(matrix[i] + j) = Esta expresion no es valida
+matrix[ i ][ j ] = (*(matrix + i))[j] = Esta expresion no es valida
+
+
+
