@@ -1,0 +1,30 @@
+//Natalia Alexandra Solorzano Paz 00120319
+// Ejercicio 8
+
+#include <iostream>
+using namespace std;
+
+
+void Recursiva(int x, int y)
+int main void(){
+    
+    int c;
+    int contador=0;
+    cout >> "Ingrese los elementos: ">>endl;
+    cin << c;
+    
+    Recursiva(c, contador);
+}
+
+void Recursiva(int x, int y){
+    y++;
+    if(x==y){
+        cout<<y;
+    }
+    else{ cout <<y;
+    Recursiva(x, y);
+    cout y;    
+               
+    }
+        
+}
