@@ -1,0 +1,29 @@
+//26) Implemente una estructura para utilizar números complejos en C++, con campos para
+//almacenar la parte real y la parte imaginaria. Cree una función que acepte un número
+//complejo, calcule su conjugada (negar la parte imaginaria y dejar la parte real tal
+//como está) y devuelva el resultado (otro número complejo).
+
+#include<iostream>
+using namespace std;
+main(){
+    int m,suma,promedio;
+    int n = 10;
+    
+    int A[n];
+    cout<<"Escriba el arreglo: "<< endl;
+    for(int i=0;i<n;i++)
+    {
+        cout<<"ingrese: ";
+        cin>>A[i];
+        
+    }
+    
+    //Para sumar:
+    cout<<"la suma es: "<<endl;
+    
+        suma=A[0]+A[1]+A[2]+A[3]+A[4]+A[5]+A[6]+A[7]+A[8]+A[9];
+        promedio=(A[0]+A[1]+A[2]+A[3]+A[4]+A[5]+A[6]+A[7]+A[8]+A[9])/10;
+        cout<<suma<<endl;
+        cout<<"El promedio es: "<<promedio<<endl;
+    
+}
