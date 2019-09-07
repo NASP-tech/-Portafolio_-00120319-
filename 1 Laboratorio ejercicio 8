@@ -23,7 +23,7 @@ void Recursiva(int x, int y){
     }
     else{ cout <<y;
     Recursiva(x, y);
-    cout y;    
+    cout <<y;    
                
     }
         
