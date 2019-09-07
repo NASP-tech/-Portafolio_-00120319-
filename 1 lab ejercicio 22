@@ -1,0 +1,41 @@
+//Natalia Alexandra Solorzano Paz 00120319
+
+//Cree una matriz cuadrada de enteros que contenga cinco filas y cinco columnas e
+//inicialice todas sus casillas a cero. Solicite al usuario sólo aquellos valores que sean
+//necesarios para crear una matriz tri-diagonal y muéstrela en consola de forma
+//ordenada (más información en: http://mathworld.wolfram.com/TridiagonalMatrix.html).
+
+
+#include <iostream> 
+using namespace std;
+
+int main()
+{
+    int matriz[5][5] = {0};
+    
+    cout << "Ingrese los numeros necesarios para completar la matriz" << endl;
+    
+     cin >> matriz[0][0];
+     cin >> matriz[0][1];
+     cin >> matriz[1][0];
+     cin >> matriz[1][1];
+     cin >> matriz[1][2];
+     cin >> matriz[2][1];
+     cin >> matriz[2][2];
+     cin >> matriz[2][3];
+     cin >> matriz[3][2];
+     cin >> matriz[3][3];
+     cin >> matriz[3][4];
+     cin >> matriz[4][3];
+     cin >> matriz[4][4]; 
+     
+     for(int i=0; i<5; i++){  	
+ 	   for(int j=0; j<5; j++){
+       	  cout<<matriz[i][j];
+       	  cout<<"|";
+       	 	     
+ 	   }
+ 	   cout << endl;
+	}
+	return 0;
+}
