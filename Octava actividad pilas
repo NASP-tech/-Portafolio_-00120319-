@@ -1,0 +1,81 @@
+//Natalia Alexandra Solorzano Paz 00120319
+//Ejercicio de pilas
+
+
+#include <iostream>
+using namespace std;
+
+struct Pila {
+	float datos[100];
+	int top;
+};
+typedef struct Pila subpila;
+void menu();
+void initialize(subpila* s) {
+	s->top = -1;
+}
+
+bool empty(subpila* s) {
+	return s->top < 0;
+}
+
+void push (subpila *s, float e) {
+	if (s->top < 99) {
+		(s->top)++;
+		s->datos[s->top] = e;
+	}
+}
+
+void pop(subpila * s, float * e) {
+	if (s->top >= 0) {
+		*e = s->datos[s->top];
+		(s->top)--;
+	}
+}
+float obtenerFondo(subpila* s) {
+	if (empty(s))
+		return -1;
+	float a = 0, b = 0;
+	pop(s, &a);
+	if (empty(s))
+		return -1;
+	pop(s,&a);
+	
+	
+	return a;
+}
+
+int main()
+{
+	menu;
+	subpila unasubpila;
+	initialize(&unasubpila);
+	
+
+	push(&unasubpila, 1.2);
+	push(&unasubpila, 3.4);
+	push(&unasubpila, 5.6);
+
+	float fondo = obtenerFondo(&unasubpila);
+	cout << "Fondo:" << fondo << endl;
+	
+}
+
+void menu() {
+	int opcion;
+	cout << "Que desea realizar?" << endl;
+	cin >> opcion;
+
+	switch (opcion){
+	case 1:
+		obtenerFondo;
+		break; 
+	case 2:
+		pop;
+		break; 
+
+	 
+	default: 
+		menu;
+	}
+}
