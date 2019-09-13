@@ -7,23 +7,21 @@ using namespace std;
 int recursiva() ;
 int main() 
 {
-    int x;
-    int contador=0;
-    cout<<" Ingrese el valor de un numero:" << endl;
-    cin >> x;
+    int n;
     
-    Recursiva(c);
+    cout<<" Ingrese el valor de un numero:" << endl;
+    cin >> n;
+    
+    Recursiva();
     
 }
 
-int recursiva(int x)
+int recursiva(int n)
 {
-    if(x%10 == 0) {
-        cout<<" El numero de digitos de ese numero son: " <<  x  << endl;
-        else {
-            
-        
-    
-    
+    int suma, 
+    if(n%10 == 0) {
+        suma = n%10+suma/10;
+        cout<<" El numero de digitos de ese numero son: " <<  suma  << endl};
+        return suma;  
     
 }
