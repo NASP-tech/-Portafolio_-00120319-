@@ -1,0 +1,29 @@
+//8)Escribir una función recursiva que devuelva la cantidad de dígitos de un número entero
+
+#include <iostream>
+using namespace std;
+
+
+int recursiva() ;
+int main() 
+{
+    int x;
+    int contador=0;
+    cout<<" Ingrese el valor de un numero:" << endl;
+    cin >> x;
+    
+    Recursiva(c);
+    
+}
+
+int recursiva(int x)
+{
+    if(x%10 == 0) {
+        cout<<" El numero de digitos de ese numero son: " <<  x  << endl;
+        else {
+            
+        
+    
+    
+    
+}
