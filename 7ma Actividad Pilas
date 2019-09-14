@@ -1,32 +1,68 @@
-// Ejercicio 1 
-// Obtener el segundo elemento de una pila, de arriba (top) hacia abajo; dejando la pila sin sus dos elementos de arriba.
-
-
-void destruir_pila( ptrPila &p)
+#include <iostream.h>
+#include <conio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+ 
+struct pilas
 {
-     ptrPila aux;
-     
-     while( p != NULL)
-     {
-           aux = p;
-           p = aux->sgte;
-           delete(aux);
-     }
-}
-int pop( ptrPila &p )
+int d;
+pilas *a;
+}*c,*e;
+ 
+void menu(void);
+void ingresar(void);
+void sacar (void);
+void actualizar_pila(void);
+ 
+main()
 {
-     int num ;
-     ptrPila aux;
-     
-     aux = p ;
-     num = aux->nro;   // asignamos el primer vamor de la pila
-     
-     p = aux->sgte ;
-     delete(aux);
-     
-     return num;
+menu();
 }
- void sacar(void)
+void menu(void)
+{
+int y,opc;
+ for(;;)
+ {
+ cout<<"\n1. Ingresar datos";
+ cout<<"\t2. Sacar datos";
+ cout<<"\t0. Terminar";
+ cout<<"\n Ingrese opcion: ";cin>>opc;
+ switch(opc)
+ {
+ case 1:
+ ingresar();
+ break;
+ case 2: sacar();
+ break;
+ case 0: exit(1);
+ default: cout<<"\n Opcion no valida!!"; break;
+ }
+actualizar_pila();
+cout<<"\n\nOprima una tecla para continuar";
+getch();
+ }
+}
+ 
+void ingresar (void)
+{
+ if(!c)
+ {
+ c=new(pilas);
+ cout<<"Ingrese elemento: ";
+ cin>>c->d;
+ c->a=NULL;
+ return;
+ }
+ 
+ e=new(pilas);
+ cout<<"\nIngrese elemento: ";
+ cin>>e->d;
+ e->a=c;
+ c=e;
+}
+ 
+void sacar(void)
 {
  if(!c)
  {
@@ -39,13 +75,29 @@ int pop( ptrPila &p )
  cout<<"\n\nElemento eliminado: " <<e->d;
  c=e->a;
  delete(e);
+ 
 }
-
-int main() {
-int n = 0, i = 0;
-cout<< "Ingrese la expresion de la pila" << endl;
-cin >> Pila;
-
-sacar ()
-
-
+void actualizar_pila(void)
+{
+ int y=2,i,ca=0;
+ e=c;
+ while(e)
+ {
+ ca++;
+ e=e->a;
+ }
+ 
+for(i=0;i<=ca;i++)
+ {
+ cout<<" ";
+ }
+ //muestro lo que tiene la pila!!
+ i=0;
+ e=c;
+ while(e)
+ {
+ cout<<"\n";
+ cout<<++i<<" - "<<e->d;
+ e=e->a;
+ }
+}
