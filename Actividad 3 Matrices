@@ -19,11 +19,46 @@ a[9][19] = 299
 
 
 2 ¿Son validas las siguientes expresiones? 
-matrix[0][0] = *(*(matrix)) = Esta expresion no es valida
-matrix[ i ][ j ] = *((*(matrix)) + (i * COLS + j)) = Esta expresion es valida
+matrix[0][0] = *(*(matrix)) = Esta expresion es valida
+matrix[ i ][ j ] = *((*(matrix)) + (i * COLS + j)) = Esta expresion no es valida
 matrix[ i ][ j ] = *(*(matrix + i) + j) = Esta expresion es valida
 matrix[ i ][ j ] = *(matrix[i] + j) = Esta expresion no es valida
 matrix[ i ][ j ] = (*(matrix + i))[j] = Esta expresion no es valida
 
 
 
+Y en codigo seria:
+#include <iostream>
+#include <cstdlib>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+	int matrix[10][20];
+
+	//llenando matrix
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 20; j++) {
+			matriz[i][j] = 1 + rand() % 10;
+		}
+	}
+
+	//Imprimiendo matrix
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 20; j++) {
+			cout<< setw(3) << matrix[i][j] <<" ";
+		}cout << endl;
+	}
+	
+	cout << "La direccion de la Matrix es: " << endl;
+	cout << "Direccion de m[0][0]: "<<*((matrix + 0) + 0)  << endl;
+	cout << "Direccion de m[2][1]: "<< *((matrix + 2) + 1) << endl;
+	cout << "Direccion de m[5][1]: " << *((matrix + 5) + 1) << endl;
+	cout << "Direccion de m[1][10]: " << *((matrix + 1) + 10) << endl;
+	cout << "Direccion de m[2][10]: " << *((matrix + 2) + 10) << endl;
+	cout << "Direccion de m[5][3]: " << *((matrix + 5) + 3) << endl;
+	cout << "Direccion de m[9][19]: " << *((matrix + 9) + 19) << endl;
+
+}
