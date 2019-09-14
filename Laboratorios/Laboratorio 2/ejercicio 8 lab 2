@@ -2,26 +2,27 @@
 
 #include <iostream>
 using namespace std;
-
-
-int recursiva() ;
-int main() 
+int main()
 {
     int n;
-    
-    cout<<" Ingrese el valor de un numero:" << endl;
-    cin >> n;
-    
-    Recursiva();
-    
-}
+    cout<<"Ingrese un numero"<<endl;
+    cin>>n;
+     
+    if (n<1||n>9999)
+        cout<<"No es un numero correcto"<<endl;
+    else
+    if (n<10)
+        cout<<"Tiene 1 digito"<<endl;
+    else
+    if (n<100)
+        cout<<"Tiene 2 digitos"<<endl;
+    else
+    if (n<1000)
+        cout<<"Tiene 3 digitos"<<endl;
+    else
+    if (n<10000)
+        cout<<"Tiene 4 digitos"<<endl;
+ 
 
-int recursiva(int n)
-{
-    int suma, 
-    if(n%10 == 0) {
-        suma = n%10+suma/10;
-        cout<<" El numero de digitos de ese numero son: " <<  suma  << endl};
-        return suma;  
-    
+return 0;
 }
