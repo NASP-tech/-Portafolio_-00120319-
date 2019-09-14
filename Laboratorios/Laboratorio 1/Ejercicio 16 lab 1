@@ -1,0 +1,33 @@
+//Natalia Alexandra Solorzano Paz 00120319
+//16) Solicite diez enteros al usuario, almacÃ©nelos en un arreglo y finalmente calcule su suma
+//y promedio. Utilice el ciclo for para controlar el flujo del programa.
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a[10]; 
+    int suma = 0; 
+    int i = 0;
+    int n;
+    float promedio;
+    n=10;
+    cout<<"Ingrese 10 numeros  "<<endl;
+    
+
+    for(i=0; i < n ; i++){
+        cout << " Ingrese datos: " << endl;
+        cin >> a[i]; 
+        
+        suma = suma + a[i];
+       
+    }   
+        promedio = (float)suma/10;  
+        
+        cout<<"La suma de los elementos es: "<< suma << endl;
+        cout <<" El promedio de los elementos es: "<< promedio <<endl;
+    
+    return 0;
+}
