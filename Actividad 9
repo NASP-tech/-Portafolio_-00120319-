@@ -1,0 +1,31 @@
+//Natalia Alexandra Solorzano Paz 00120319
+#include <iostream>
+#include <stack>
+#include <string.h>
+using namespace std;
+
+
+int main()
+{
+	stack<string> s;
+	s.push("America");
+	s.push("Europa");
+	s.push("Africa");
+	s.push("Asia");
+	s.push("Oceania");
+		
+	cout << "La cantidad de continentes es: " << s.size() << endl;
+
+	cout << "El 1er continente ingresado es: " << s.top() << endl;
+
+	s.pop();
+	//s.pop();
+
+	cout << "La cantidad de continentes es: " << s.size() << endl;
+
+	if (s.empty())
+		cout << "Los continentes estan vacios " << endl;
+	else
+		cout << "Los continentes no estan vacios " << endl;
+	return 0;
+}
