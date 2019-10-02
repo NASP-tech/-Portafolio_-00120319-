@@ -1,1 +1,65 @@
-Probando
+//Natalia Alexandra Solorzano Paz 00120319
+//Colas circulares
+
+#include <iostream>
+using namespace std;
+
+struct nodo {
+	float elemento;
+	struct nodo* siguiente;
+};
+
+
+
+typedef struct nodo Nodo;
+
+struct Tcola {
+	Nodo* frente;
+	Nodo* final;
+};
+
+typedef struct Tcola Cola;
+
+bool empty(Cola* q) {
+	return (q->frente == NULL) ? true : false;
+}
+
+void insert(Cola* q, float x) {
+	Nodo* unNodo;
+	unNodo = (Nodo*)malloc(sizeof(Nodo));
+	unNodo->elemento = x;
+	unNodo->siguiente = NULL;
+
+	if (q->final == NULL)
+		q->frente = unNodo;
+	else (q->final)->siguiente = unNodo;
+	q->final = unNodo;
+}
+
+float remove(Cola* q) {
+	if (empty(q)) {
+		cout << "Underflow!" << endl;
+		return -1;
+	}
+	Nodo* unNodo = q->frente;
+	float x = unNodo->elemento;
+	q->frente = unNodo->siguiente;
+	if (q->frente == NULL)
+		q->final = NULL;
+	delete(unNodo);
+	return x;
+}
+
+int main() {
+	Cola unaCola;
+	insert(&unaCola, 1);
+	insert(&unaCola, 2);
+	insert(&unaCola, 3);
+
+	cout << remove(&unaCola) << endl;
+	cout << remove(&unaCola) << endl;
+	cout << remove(&unaCola) << endl;
+	cout << remove(&unaCola) << endl;
+
+	return 0;
+}
