@@ -2,64 +2,96 @@
 //Colas circulares
 
 #include <iostream>
+#include <conio.h>
+#include <stdlib.h>
 using namespace std;
 
-struct nodo {
-	float elemento;
-	struct nodo* siguiente;
+struct Nodo {
+	int dato;
+	Nodo* siguiente;
 };
 
-
-
-typedef struct nodo Nodo;
-
-struct Tcola {
-	Nodo* frente;
-	Nodo* final;
-};
-
-typedef struct Tcola Cola;
-
-bool empty(Cola* q) {
-	return (q->frente == NULL) ? true : false;
-}
-
-void insert(Cola* q, float x) {
-	Nodo* unNodo;
-	unNodo = (Nodo*)malloc(sizeof(Nodo));
-	unNodo->elemento = x;
-	unNodo->siguiente = NULL;
-
-	if (q->final == NULL)
-		q->frente = unNodo;
-	else (q->final)->siguiente = unNodo;
-	q->final = unNodo;
-}
-
-float remove(Cola* q) {
-	if (empty(q)) {
-		cout << "Underflow!" << endl;
-		return -1;
-	}
-	Nodo* unNodo = q->frente;
-	float x = unNodo->elemento;
-	q->frente = unNodo->siguiente;
-	if (q->frente == NULL)
-		q->final = NULL;
-	delete(unNodo);
-	return x;
-}
+void menu();
+void insertarCola(Nodo*&, Nodo*&, int);
+bool cola_vacia(Nodo*);
+void suprimirCola(Nodo*&, Nodo*&, int&);
 
 int main() {
-	Cola unaCola;
-	insert(&unaCola, 1);
-	insert(&unaCola, 2);
-	insert(&unaCola, 3);
 
-	cout << remove(&unaCola) << endl;
-	cout << remove(&unaCola) << endl;
-	cout << remove(&unaCola) << endl;
-	cout << remove(&unaCola) << endl;
+	menu();
 
 	return 0;
+}
+
+void menu() {
+	int opc;
+	int dato;
+	Nodo* frente = NULL;
+	Nodo* fin = NULL;
+	do
+	{
+		cout << "1. Insertar un entero a una cola" << endl;
+		cout << "2. Mostrar todos los elementos de la cola" << endl;
+		cout << "3. Salir" << endl;
+		cout << "Digite la opcion que desea efectuar" << endl;
+		cin >> opc;
+
+		switch (opc) {
+		case 1: cout << "Ingrese el entero a la cola" << endl;
+			cin >> dato;
+			insertarCola(frente, fin, dato);
+			break;
+		case 2: cout << "Los datos ingresados a la cola son: " << endl;
+			while (frente != NULL) {
+				suprimirCola(frente, fin, dato);
+				if (frente != NULL) {
+					cout << dato << " , " << endl;
+				}
+				else {
+					cout << dato << "." << endl;
+				}
+			}
+
+			break;
+
+		case 3: break;
+		}
+
+
+	} while (opc != 3);
+}
+
+
+void insertarCola(Nodo*& frente, Nodo*& fin, int n) {
+	Nodo* nuevo_nodo = new  Nodo();
+
+	nuevo_nodo->dato = n;
+	nuevo_nodo->siguiente = NULL;
+
+	if (cola_vacia(frente)) {
+		frente = nuevo_nodo;
+	}
+	else {
+		fin->siguiente = nuevo_nodo;
+	}
+	fin = nuevo_nodo;
+}
+
+bool cola_vacia(Nodo* frente) {
+	return (frente == NULL) ? true : false;
+}
+
+
+void suprimirCola(Nodo*& frente, Nodo*& fin, int& n) {
+	n = frente->dato;
+	Nodo* aux = frente;
+
+	if (frente == fin) {
+		frente = NULL;
+		fin = NULL;
+	}
+	else {
+		frente = frente->siguiente;
+	}
+	delete aux;
 }
