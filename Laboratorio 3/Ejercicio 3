@@ -1,0 +1,75 @@
+/* Natalia Alexandra Solorzano Paz 00120319 Laboratorio 3 Ejercicio 3*/
+/* En un libreria un cliente desea saber el numero total de paginas de cierto libro,
+pero este se encuentra entre un monton de libros apilados sobre una mesa. Elabore una funcion
+recursiva que reciba la pila de libros y el titulo del libro, y devuelva la cantidad de paginas
+del mismo. Utilice la siguiente estructura:
+struct libro{
+char titulo[35];
+	int numPaginas;
+	libro*sig;
+	};
+	*/
+
+#include <iostream>
+#include <string>
+#include <stack>
+using namespace std;
+
+struct libro {
+	string libro;
+	int totalPaginas;
+};
+
+void BuscarLibro(stack<libro> libros, string titulo) {
+	if (libros.empty()) {
+		cout << "NO se ha encontrado el libro, lo sentimos " << endl;
+	}
+	else {
+		if (libros.top().libro == titulo) {
+			cout << "Cuantas paginas deseas que contenga el libro? " << libros.top().totalPaginas << endl;
+		}
+		else {
+			libros.pop();
+			BuscarLibro(libros, titulo);
+		}
+	}
+}
+
+int main()
+{
+
+	stack<libro> libros;
+
+	libro lib1, lib2, lib3, lib4, lib5;
+
+	lib1.libro = "libro1";
+	lib1.totalPaginas = 250;
+
+	lib2.libro = "libro2";
+	lib2.totalPaginas = 500;
+
+	lib3.libro = "libro3";
+	lib3.totalPaginas = 765;
+
+
+	lib4.libro = "libro4";
+	lib4.totalPaginas = 354;
+
+	lib5.libro = "libro5";
+	lib5.totalPaginas = 234;
+
+	libros.push(lib1);
+	libros.push(lib2);
+	libros.push(lib3);
+	libros.push(lib4);
+	libros.push(lib5);
+
+	string libro;
+	cout << "Que libro deseas leer? " << endl;
+	cout << "libro1  libro2  libro3  libro4  libro5" << endl;
+	cin >> libro;
+
+	BuscarLibro(libros, libro);
+
+	return 0;
+}
